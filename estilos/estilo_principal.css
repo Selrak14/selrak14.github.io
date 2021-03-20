@@ -1,8 +1,12 @@
-/* fondo */
+/* background */
 body {
     background-color: rgb(255, 255, 255);
     margin: 0px;
   }
+/*basic*/
+*{
+    font-family: 'Kumbh Sans', sans-serif;
+}
 
 /* Add a black background color to the top navigation */
 .topnav {
