@@ -1,5 +1,8 @@
 body {margin: 0;}
 body {background-color: rgb(53, 53, 58);}
+body {
+  color: white;
+}
 
 ul.topnav {
   list-style-type: none;
@@ -29,4 +32,21 @@ ul.topnav li.right {float: right;}
 @media screen and (max-width: 600px) {
   ul.topnav li.right, 
   ul.topnav li {float: none;}
+}
+
+ul.proyectos {
+  list-style-type: none;
+  padding-top: 50px;
+  overflow: hidden;
+}
+
+ul.proyectos li{
+  font-size: 25px;
+}
+
+div.list-father{
+  width: 500px;
+  padding: 50px;
+  border: 1px solid rgb(90, 89, 92);
+  box-sizing: border-box;
 }
