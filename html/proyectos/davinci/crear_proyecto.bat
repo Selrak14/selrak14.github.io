@@ -1,0 +1,7 @@
+mkdir "nombre_proyecto_xx_xx_xxxx"
+mkdir "nombre_proyecto_xx_xx_xxxx/imagenes"
+mkdir "nombre_proyecto_xx_xx_xxxx/documentos"
+mkdir "nombre_proyecto_xx_xx_xxxx/project_files"
+mkdir "nombre_proyecto_xx_xx_xxxx/musica"
+mkdir "nombre_proyecto_xx_xx_xxxx/renderizado"
+mkdir "nombre_proyecto_xx_xx_xxxx/raw_footage"
