@@ -50,7 +50,15 @@ div.list-father{
 
 div.halfwindow{
   margin: auto;
-  padding: 50px;
+  width: 80%;
+  padding-top: 50px;
   border: 0px solid rgb(90, 89, 92);
   box-sizing: border-box;
+}
+
+img.normalsize{
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 80%;
 }
