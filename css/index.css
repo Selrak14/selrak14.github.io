@@ -8,6 +8,12 @@ html {
 }
 
 /* TOPNAVS */
+@media(max-width:900px) {
+    .topnav{
+      visibility: hidden;
+      display: none;
+    }
+  }
 ul.topnav {
     list-style-type: none;
     margin: 0;
@@ -49,7 +55,7 @@ ul.topnav {
 }
 
 #second-heading {
-    padding-top: 100px;
+    padding-top: 20px;
     font-family: monospace;
     font-size: 25px;
     display: flex;
