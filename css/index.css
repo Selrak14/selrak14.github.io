@@ -104,7 +104,7 @@ ul.topnav {
 
 .gray-text {
     
-    color: gray;
+    color: rgb(164, 164, 164);
 }
 
 .gradiant-effect {
@@ -259,10 +259,10 @@ a{
 .connect-elements:hover {
     transform: scale(1.1);
     color: #02aab0;
-    background-image: -webkit-linear-gradient(92deg, #02aab0, #00cdac);
+    /* background-image: -webkit-linear-gradient(92deg, #02aab0, #00cdac); */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-animation: hue 10s infinite linear;
+    /* -webkit-animation: hue 10s infinite linear; */
 }
 /* -------------------------- */
 
@@ -280,6 +280,15 @@ a{
   }
 
 /* -------------------------- */
+
+
+
+/* IMAGES */
+.galeria-fotos{
+
+    margin: auto;  
+    max-width: 500px;
+}
 
 /* ANIMATION */
 
