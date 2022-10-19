@@ -1,4 +1,45 @@
-body {margin: 0;}
+body.base {
+  margin: auto;
+  /* margin-top: 50px; */
+  width: 70%;
+  padding: 10px;
+  /* text-align: center; */
+  /* color: ; */
+}
+
+.column {
+  float: left;
+  padding: 10px;
+  /* height: 300px; Should be removed. Only for demonstration */
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.left{
+  float: left;
+  width: 50%;
+}
+.right{
+  float: right;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+p.half{
+  width: 50%;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
 
 ul.topnav {
   list-style-type: none;
