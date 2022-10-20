@@ -55,10 +55,70 @@
         <h3>Bases del color</h3>
         <p class="half">
             El color digital es un tema complejo que se comlpica cada vez más cuando intentas profundizar en el.
-             Para evitar complicaciones innecesarias, solo se explicaran las herramientas basicas empleadas en la corrección de color.
-
         </p>
+        
+        <div class="row">
+            <div class="column left">
+                <p>De forma simplificada, se trata de valores entre 0 y 1 (normalizado). Si estas familiarizado en el espacio de color sRGB
+                    recordarás que estos valores sin normalizar se mueven entre (0,0,0) y (255,255,255), un total de  256<sup>3</sup> colores diferentes.
+                </p>
+            </div>
+            <div class="column right">
+                <p><img src="html_images/Untitled-1.svg" alt=""></p>
+            </div>
+        </div>
 
+        
+        <div>
+            La cantidad de colores que se pueden formar afectará a la capacidad de manipular el color con software de edición de video. 
+            El espacio de color sRGB de 8 bits no permite una gran manipulación comparado con archivos RAW sin compresión ni espacios de color predeterminados por esta misma razón,
+            la cantidad de colores es mucho mayor.
+        </div>
+        <div>
+            Este concepto es un poco contraintuitivo. Los colores que los ojos humanos son capaces de percibir son mucho más 
+            amplios que los que emite una pantalla de ordenador (sRGB)
+
+        </div>
+
+        <div class="row">
+            <div class="column left">
+                <p>sRGB<img src="html_images/srgb-1.webp" alt="" ></p>
+            </div>
+            <div class="column right">
+                <p>Todos los colores visibles<img src="html_images/CIExy1931.png" alt="" ></p>
+            </div>
+        </div>
+        <div>
+            Como se puede observar, estos colores se comprimen a un rango mucho menor y se perciben con muchos menos matices.
+        </div>
+        
+        <div>
+            Estas ideas son muy interesantes pero como afecta a un caso práctico?. <br> 
+
+            Asumamos que los colores visibles solo son los comprendidos en sRGB y que nuestra pantalla solo puede mostrar la mitad de estos colores.
+        </div>
+        <div class="row">
+            <div class="column left">
+                Colores reales
+                <img src="html_images/CIExy1931.png" alt="">
+            </div>
+            <div class="column right">
+                Colores mostrados por la pantalla
+                <img src="html_images/CIExy1931comprimido.png" alt=""> 
+            </div>
+        </div>
+
+        <div>
+            Esta no es una explicación correcta pero solo me interesa esta idea: Los colores reales se comprimen a los colores que puede mostrar una pantalla. Esta operacion se puede realizar en 
+            muchos momentos diferentes durante la vida de una imagen, al tomar la foto, al revelar una foto, etc...
+        </div>
+    </div>
+
+    <div>
+        <h3>Corrección de color</h3>
+        <iframe width="420" height="315"
+        src="https://www.youtube.com/watch?v=BBvEOIozAJk&t">
+        </iframe> 
     </div>
 </body>
 </html>

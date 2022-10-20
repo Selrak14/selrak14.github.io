@@ -11,11 +11,15 @@ body.base {
   float: left;
   padding: 10px;
   /* height: 300px; Should be removed. Only for demonstration */
+  /* border-width: 1px; */
+  /* border-style: solid; */
+  /* border-color: black; */
+}
+.border {
   border-width: 1px;
   border-style: solid;
-  border-color: black;
+  border-color: rgb(46, 36, 36);
 }
-
 .left{
   float: left;
   width: 50%;
@@ -31,7 +35,15 @@ body.base {
   clear: both;
 }
 
+img{
+  height: 100%;
+  width: 100%; 
+  object-fit: 'contain';
+}
 
+div{
+  margin-top: 20px;
+}
 p.half{
   width: 50%;
 }
