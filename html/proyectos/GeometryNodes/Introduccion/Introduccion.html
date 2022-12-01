@@ -65,20 +65,26 @@
             en planos u otras cosas. La ventaja de este nuevo metodo para manejar la geometria es la proceduralidad que ofrece.
         </p>
         <p>
-            Si en algún momento has sentido miedo de la complejidad a la que pueden llegar estos arboles, no te preocupes. La mentalidad que se debe seguir en estas situaciones es siempre la misma: <br>
+            Si en algún momento has sentido miedo de la complejidad a la que pueden llegar estos arboles, 
+            no te preocupes. La mentalidad que se debe seguir en estas situaciones es siempre la misma: <br>
             * Divide y vencerás
         </p>
+        <h1>Viewport</h1>
         <p>
+            <h3>Layout</h3>
             Para empezar podemos dividir el workspace en partes muy concretas a las que blender ya nos ha acostumbrado.
             <div>
                 <p><img src="./escena3d.jpg" alt=""> <figcaption>Fig.2 - Escena 3D .</figcaption></p>
             </div>
             Si tienes un poco de experiencia en blender, sabes que este es el viewport en el que siempre trabajas para modelar o añadir objetos.
             En este caso, toda la información adicional esta escondida para dejar visible solo la geometria.
+
+            <h3>Spreadsheet</h3>
             <div>
                 <p><img src="./spreadsheet.jpg" alt=""> <figcaption>Fig.3 - spreadsheet .</figcaption></p>
             </div>
-            Aunque pueda asustar en un inicio, el spreadsheet solo nos esta mostrando la información que le entra a los nodos de geometry nodes. Para esta escena he añadido un cubo y le 
+            Aunque pueda asustar en un inicio, el spreadsheet solo nos esta mostrando la información que le entra a 
+            los nodos de geometry nodes. Para esta escena he añadido un cubo y le 
             he puesto un modificador de geometry nodes.
             <br>
             A este nodo le entran: 
@@ -89,16 +95,17 @@
                 <li>24 esquinas de caras (este concepto lo aprenderemos mas adelante)</li>
                 <li>No tiene curvas ni instancias entre otros</li>
             </ul>
-            Al seleccionar los diferentes apartados, te mostrará la información que contienen estos conjuntos de datos como la posición de los vertices de la figura 3 o si las caras tienen "suavizado de sombra"
+            Al seleccionar los diferentes apartados, te mostrará la información que contienen estos conjuntos de datos como
+             la posición de los vertices de la figura 3 o si las caras tienen "suavizado de sombra"
             como en la figura 4.
             <div>
                 <p><img src="./spreadsheet caras.jpg" alt=""> <figcaption>Fig.4 - spreadsheet Caras .</figcaption></p>
             </div>
 
+            <h3>Jerarquia y modificadores</h3>
             <div >
-                <p><img src="./jerarquia y modificadores.jpg" alt="" > <figcaption>Fig.5 - jerarquia y modificadores .</figcaption></p>
+                <p><img src="./jerarquia y modificadores.jpg" alt="" > <figcaption>Fig.5 - jerarquía y modificadores .</figcaption></p>
             </div>
-
             En el caso de contener multiples modificadores de Geometry Nodes, la salida del superior será la entrada del siguiente. 
             Esto implica que si se añade geometria dentro del primer nodo, esta aparecera en el segundo.
             <div>
@@ -113,6 +120,8 @@
                     Salida: Contiene la información que se mostrará por pantalla y que se pasará a los siguientes Geometry Nodes.
                 </li>
             </ul>
+
+            <h3>Algunas dudas</h3>
             Cuando empecé a utilizarlos me surgieron muchas dudas como:
             <ul>
                 <li>Y si quiero pasar información entre diferentes Geometry Nodes sin que aparezcan por pantalla? Para eso empleamos los atributos (más adelante)</li>

@@ -19,8 +19,16 @@
     
     
     </head>
+    <script>function zoom(e){
+        var zoomer = e.currentTarget;
+        e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+        e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+        x = offsetX/zoomer.offsetWidth*100
+        y = offsetY/zoomer.offsetHeight*100
+        zoomer.style.backgroundPosition = x + '% ' + y + '%';
+      }</script>
 <!-- TITULO -->
-<body>
+<body class="base">
 
 
     <!-- GRADIANT EFFECT ON TOP -->
@@ -43,10 +51,159 @@
             <hr class="my-4">
         </div>
 
-        <div>
+        <div class="rcorners1">
             Geometry nodes system for modifying the geometry of an object with node-based operations. It can be accessed by adding a Geometry Nodes Modifier. 
             <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/introduction.html">Manual de blender</a>
         </div>
+
+        <br>
+        <h1>Atención</h1>
+        En este mini tutorial no pretendo hacer un sistema de hierba fotorealista valido para todos los casos. Solo pretendo familiarizarte en la modificación de
+        posiciones de los vertices.
+
+
+        <h3>Muestra práctica</h3>
+        <a href="Tutorial1.blend" download>
+            <button type="button" class="btn btn-info">Descargar .blend</button>
+        </a>
+
+        <h3>Hoja</h3>
+        <p>
+            Para generar la información de una hoja seria tan sencillo como modelar un plano y a este añadirle un Geometry Nodes. Seria lo sencillo  ...sencillo. <br>
+            No vamos a ir por ese camino. Para este caso generaremos esta información desde los nodos. <br> 
+
+            <h4>1</h4>
+            <ul>
+                <li>Generamos (con shft + a o como prefieras) un objeto cualquiera, en mi caso un cubo.</li>
+                <li>Le añadimos un modificador Geometry Node</li>
+                <li>Eliminamos los vértices del objeto, no los utilizaremos por el momento</li>
+            </ul>
+            <div class="row">
+                <div class="column left image" style="background-color:#464444;">
+                    <figure class='goOnZoom' style="background-image: url('./1.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                        <img src="./1.jpg">
+                    </figure>
+                </div>
+                <div class="column right image" style="background-color:#464444;">
+                    <figure class='goOnZoom' style="background-image: url('./1_2.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                        <img src="./1_2.jpg">
+                    </figure>
+                </div>
+            </div>
+            
+            <h4>2</h4>
+            Creamos un plano subdividido como nos convenga, en este caso para doblarlo hacia adelante y hacia atras. 
+            <br>
+            Lo ponemos en vertical para que parezca una hoja.
+            <br>
+            Para que las coordenadas de los vertices esten en valores entre 0 y positivo, elevamos la maya la mitad de su longitud. 
+            Estoy seguro de que puedes ver el porqué.
+            <div class="row">
+                <!-- 2 -->
+                <div class="column left image" style="background-color:#464444;">
+                    <figure class='goOnZoom' style="background-image: url('./2.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                        <img src="./2.jpg">
+                    </figure>
+                </div>
+                <div class="column right image" style="background-color:#464444;">
+                    <figure class='goOnZoom' style="background-image: url('./2_.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                        <img src="./2_.jpg">
+                    </figure>
+                </div>
+                <!-- 3 -->
+                <div class="column left image" style="background-color:#464444;">
+                    <figure class='goOnZoom' style="background-image: url('./3.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                        <img src="./3.jpg">
+                    </figure>
+                </div>
+                <div class="column right image" style="background-color:#464444;">
+                    <figure class='goOnZoom' style="background-image: url('./3_.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                        <img src="./3_.jpg">
+                    </figure>
+                </div>
+                    <!--  4 -->
+                <div class="column left image" style="background-color:#464444;">
+                    <figure class='goOnZoom' style="background-image: url('./4.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                        <img src="./4.jpg">
+                    </figure>
+                </div>
+                <div class="column right image" style="background-color:#464444;">
+                    <figure class='goOnZoom' style="background-image: url('./4_.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                        <img src="./4_.jpg">
+                    </figure>
+                </div>
+            </div>
+
+            <h4>3</h4>
+            Para continuar, la forma de la hoja rectangular puede ser interesante para minecraft pero, en nuestro caso, vamos a darle una forma mas intuitiva.
+            <br> <br>
+            Las coordenadas en vertical (Z) son valores entre el 0 y un valor que llamaremos Sy. Sy lo conocemos, se trata de la altura maxima de la hoja y es un
+            valor que elejimos nosotros con la variable global "Size y". 
+            <br><br>
+            Normalizaremos estos valores y nos dará un rango entre 0 y 1. Ahora podemos decidir que si el valor es 0, la posición de los vertices en "x" sea 0, y si es 1,
+            que se quede igual (traducido como una multiplicación). Obtenemos las coordenadas x de todos los vertices y las multiplicamos por el nuevo array de valores de 
+            0 a 1 controlado por el ColorRamp.
+            <div class="image">
+                <figure class='goOnZoom' style="background-image: url('./5.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                    <img src="./5.jpg">
+                </figure>
+            </div>
+
+            Con este mismo metodo podemos desplazar los vertices hacia la "Y" en positivo. 
+            <br><br>
+            Por el momento la coordenada "Y" es = a 0. Sumamos el valor de las coordenadas "Z" y obtenemos una recta.
+            <div class="image">
+                <figure class='goOnZoom' style="background-image: url('./6.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                    <img src="./6.jpg">
+                </figure>
+            </div>
+            <div class="image">
+                <figure class='goOnZoom' style="background-image: url('./7.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                    <img src="./7.jpg">
+                </figure>
+            </div>
+            Para la curva, al igual que antes, empleamos un ColorRamp.
+            <div class="image">
+                <figure class='goOnZoom' style="background-image: url('./8.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                    <img src="./8.jpg">
+                </figure>
+            </div>
+
+            <h4>4</h4>
+
+            Para terminar, la distribución de puntos se lleva a cabo con el siguiente grupo de nodos. Primero necesitamos geometria donde poner la hierba y 
+            luego distribuir puntos (densidad).
+            <div class="image">
+                <figure class='goOnZoom' style="background-image: url('./9.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                    <img src="./9.jpg">
+                </figure>
+            </div>
+
+            Para que no parezcan un ejercito de hojas, las rotamos aleatoriamente en la coordenada "Z".
+            <div class="image">
+                <figure class='goOnZoom' style="background-image: url('./10.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                    <img src="./10.jpg">
+                </figure>
+            </div>
+            Y tenemos nuestr oresultado final.
+            <div class="image">
+                <figure class='goOnZoom' style="background-image: url('./11.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                    <img src="./11.jpg">
+                </figure>
+            </div>
+
+            Para un sistema un poco más elaborado, podeis descargar el archivo con el arbol de nodos. Propongo que lo mireis por encima
+            e intenteis entender las partes nuevas que se han añadido.
+            <div class="image">
+                <figure class='goOnZoom' style="background-image: url('./12.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                    <img src="./12.jpg">
+                </figure>
+            </div>
+        </p>
+
+
+        <!-- FINAL -->
+        <div style="padding-bottom: 300px;"></div>
     </div>
 
 </body>
