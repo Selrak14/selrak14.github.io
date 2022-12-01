@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Geometry Nodes</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+        <!-- STYLES -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../../../css/index.css">
+        <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../../css/estilo_principal.css">
+        
+        <link rel="icon" href="/assets/Logo_Normalpng.png">
+        <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+    
+    
+    
+    </head>
+    <script>function zoom(e){
+        var zoomer = e.currentTarget;
+        e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+        e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+        x = offsetX/zoomer.offsetWidth*150
+        y = offsetY/zoomer.offsetHeight*150
+        zoomer.style.backgroundPosition = x + '% ' + y + '%';
+      }</script>
+<!-- TITULO -->
+<body class="base">
+
+
+    <!-- GRADIANT EFFECT ON TOP -->
+    <h1 id="main-heading" class="gradiant-effect"></h1>
+    <!-- TOPNAV -->
+    <ul class="topnav">
+        <li><a class="active" href="../../../../../index.html">Inicio</a></li>
+        <!-- <li><a href="..\html\proyectos.html">Proyectos y blogs</a></li> -->
+        <li><a href="https://github.com/carlesmatoses">GitHub</a></li>
+        <li class="right"><a href="#about">About</a></li>
+    </ul>
+
+
+    <div id="main-box">
+        <div class="display-3" style="padding-top: 50px;">
+            <h1 style="text-align: center;">
+                Introducción <br>
+                <small class="text-muted">Entorno de trabajo</small>
+            </h1>
+            <hr class="my-4">
+        </div>
+
+        <div class="rcorners1" >
+            Geometry nodes system for modifying the geometry of an object with node-based operations. It can be accessed by adding a Geometry Nodes Modifier. 
+            <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/introduction.html">Manual de blender</a>
+        </div>
+
+        <div>
+            <p><img src="entorno3.3.jpg" alt=""> <figcaption>Fig.1 - Blender 3.3.0 .</figcaption></p>
+        </div>
+
+        <p>
+            Seguramente ya has visto el potencial de los geometry nodes y has intentado usarlos por tu cuenta para distribuir puntos
+            en planos u otras cosas. La ventaja de este nuevo metodo para manejar la geometria es la proceduralidad que ofrece.
+        </p>
+        <p>
+            Si en algún momento has sentido miedo de la complejidad a la que pueden llegar estos arboles, no te preocupes. La mentalidad que se debe seguir en estas situaciones es siempre la misma: <br>
+            * Divide y vencerás
+        </p>
+        <p>
+            Para empezar podemos dividir el workspace en partes muy concretas a las que blender ya nos ha acostumbrado.
+            <div>
+                <p><img src="./escena3d.jpg" alt=""> <figcaption>Fig.2 - Escena 3D .</figcaption></p>
+            </div>
+            Si tienes un poco de experiencia en blender, sabes que este es el viewport en el que siempre trabajas para modelar o añadir objetos.
+            En este caso, toda la información adicional esta escondida para dejar visible solo la geometria.
+            <div>
+                <p><img src="./spreadsheet.jpg" alt=""> <figcaption>Fig.3 - spreadsheet .</figcaption></p>
+            </div>
+            Aunque pueda asustar en un inicio, el spreadsheet solo nos esta mostrando la información que le entra a los nodos de geometry nodes. Para esta escena he añadido un cubo y le 
+            he puesto un modificador de geometry nodes.
+            <br>
+            A este nodo le entran: 
+            <ul>
+                <li>8 vertices</li>
+                <li>12 segmentos</li>
+                <li>6 caras</li>
+                <li>24 esquinas de caras (este concepto lo aprenderemos mas adelante)</li>
+                <li>No tiene curvas ni instancias entre otros</li>
+            </ul>
+            Al seleccionar los diferentes apartados, te mostrará la información que contienen estos conjuntos de datos como la posición de los vertices de la figura 3 o si las caras tienen "suavizado de sombra"
+            como en la figura 4.
+            <div>
+                <p><img src="./spreadsheet caras.jpg" alt=""> <figcaption>Fig.4 - spreadsheet Caras .</figcaption></p>
+            </div>
+
+            <div >
+                <p><img src="./jerarquia y modificadores.jpg" alt="" > <figcaption>Fig.5 - jerarquia y modificadores .</figcaption></p>
+            </div>
+
+            En el caso de contener multiples modificadores de Geometry Nodes, la salida del superior será la entrada del siguiente. 
+            Esto implica que si se añade geometria dentro del primer nodo, esta aparecera en el segundo.
+            <div>
+                <p><img src="./geometry nodes.jpg" alt=""> <figcaption>Fig.6 - Geometry Nodes .</figcaption></p>
+            </div>
+            Por ultimo, el arbol de nodos tiene una entrada y una salida:
+            <ul>
+                <li> Entrada: Permite que le demos datos variables desde fuera del editor de geometry nodes. En pocas palabras, si quieres tener el mismo arbol de Geometry Nodes
+                    en diferentes objetos, pero quieres que el numero de particulas sea menor en el más lejano, lo conviertes en una variable externa o global (es lo mismo).
+                </li>
+                <li>
+                    Salida: Contiene la información que se mostrará por pantalla y que se pasará a los siguientes Geometry Nodes.
+                </li>
+            </ul>
+            Cuando empecé a utilizarlos me surgieron muchas dudas como:
+            <ul>
+                <li>Y si quiero pasar información entre diferentes Geometry Nodes sin que aparezcan por pantalla? Para eso empleamos los atributos (más adelante)</li>
+                <li>Como reutilizo el mismo nodo en dos objetos diferentes? La mejor forma es renombrando el nodo. Ten en cuenta que tienen un nombre global y otro local</li>
+                <li>...</li>
+            </ul>
+            <div class="image">
+                <figure class='goOnZoom' style="background-image: url('./global_local.jpg');" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+                    <img src="./global_local.jpg">
+                </figure>
+            </div>
+
+
+        </p>
+
+
+
+
+
+        <!-- FINAL -->
+        <div style="padding-bottom: 300px;"></div>
+    </div>
+
+
+</body>
