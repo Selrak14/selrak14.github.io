@@ -15,6 +15,14 @@ body.base {
   /* border-style: solid; */
   /* border-color: black; */
 }
+.blog {
+  /* float:none;
+  width: 50%; */
+  /* height: 300px; Should be removed. Only for demonstration */
+  /* border-width: 1px; */
+  /* border-style: solid; */
+  /* border-color: black; */
+}
 .border {
   border-width: 1px;
   border-style: solid;
@@ -119,6 +127,14 @@ div.list-father{
   margin: auto;
   width: 50%;
   border: 3px solid rgb(41, 41, 41);
+  padding: 10px;
+  margin-top: 50px; ;
+}
+
+div.mid-center{
+  margin: auto;
+  width: 50%;
+  /* border: 3px solid rgb(41, 41, 41); */
   padding: 10px;
   margin-top: 50px; ;
 }
